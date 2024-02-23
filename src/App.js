@@ -1,6 +1,6 @@
 import { Reset } from 'styled-reset';
 import './App.css';
-import SideBar from './components/SideBar/SideBar';
+import SideBar from './components/SideBarTop/SideBarTop';
 import { Route, Routes } from 'react-router-dom';
 
 export default function App() {
