@@ -5,6 +5,7 @@ export const layout = (isShow) => css`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 99;
 
   display: flex;
   justify-content: center;
@@ -21,10 +22,9 @@ export const topBtn = css`
   box-sizing: border-box;
   position: absolute;
   width: 40px;
-  height: 20px;
-
-  right: 5%;
-  bottom: -20px;
+  height: 17px;
+  right: 2%;
+  bottom: -17px;
   border: 1px solid #dbdbdb;
   background-color: white;
   cursor: pointer;

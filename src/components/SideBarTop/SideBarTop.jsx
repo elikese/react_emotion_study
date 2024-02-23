@@ -11,38 +11,36 @@ export default function SideBar() {
       {
         id: 1,
         path: "/mypage",
-        name: "마이페이지"
+        name: "🤩MyPage"
       },
       {
         id: 2,
         path: "/board",
-        name: "게시글"
+        name: "😁Board"
       },
       {
         id: 3,
         path: "/notice",
-        name: "공지사항"
-      },
+        name: "🙄Notice"
+      }
     ], []);
 
   const [isShow, setShow] = useState(false)
 
   return (
-    <>
-      <aside css={S.layout(isShow)}>
-        <button css={S.topBtn} onClick={() => { setShow(!isShow) }}>
-          {isShow ? <FaChevronUp /> : <FaChevronDown />}
-        </button>
-        {
-          menus.map(menu => {
-            return (
-              <Link css={S.menuItem} to={menu.path} key={menu.id} onClick={() => setShow(false)}>
-                <span css={S.menuName(isShow)}>{menu.name}</span>
-              </Link>
-            )
-          })
-        }
-      </aside>
-    </>
+    <aside css={S.layout(isShow)}>
+      <button css={S.topBtn} onClick={() => { setShow(!isShow) }}>
+        {isShow ? <FaChevronUp /> : <FaChevronDown />}
+      </button>
+      {
+        menus.map(menu => {
+          return (
+            <Link css={S.menuItem} to={menu.path} key={menu.id} onClick={() => setShow(false)}>
+              <span css={S.menuName(isShow)}>{menu.name}</span>
+            </Link>
+          );
+        })
+      }
+    </aside>
   )
 }
