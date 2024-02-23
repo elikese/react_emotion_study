@@ -1,11 +1,9 @@
-/** @jsxImportSource @emotion/react */
+/** @jsxImportSource @emotion/react */ // <---css={} 하려고 import됨.
 
 import { useMemo, useState } from "react";
 import * as S from "./style"
 import { FaCaretRight, FaCaretLeft } from "react-icons/fa"
-
-
-
+import { Link } from "react-router-dom";
 
 function SideBar() {
   const [isShow, setShow] = useState(false);
@@ -29,11 +27,23 @@ function SideBar() {
     ], []);
   return (
     <aside css={S.layout(isShow)}>
-      <button css={S.toggleButton} onClick={() => { setShow(!isShow) }}>
-        {isShow ? <FaCaretLeft /> : <FaCaretRight />}
+      <button css={S.toggleButton(isShow)} onClick={() => { setShow(!isShow) }}>
+        {/* {isShow ? <FaCaretLeft /> : <FaCaretRight />} */}
+        <FaCaretLeft />
       </button>
-      <ul>
-
+      <button css={S.toggleButton2(isShow)} onClick={() => { setShow(!isShow) }}>
+        <FaCaretRight />
+      </button>
+      <ul css={S.menuList}>
+        {
+          menus.map(menu => {
+            return (
+              <Link css={S.menuItem} to={menu.path} key={menu.id} onClick={() => setShow(false)}>
+                <li>{menu.name}</li>
+              </Link>
+            )
+          })
+        }
       </ul>
     </aside>
   )
